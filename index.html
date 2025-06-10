@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+  <html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="PhyScene: Physically Interactable 3D Scene Synthesis for Embodied AI">
+    <meta name="keywords" content="Scene Synthesis, Diffusion Model, Physically Interactable, Articulated Object, Simulation Environment, Embodied AI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SceneWeaver: All-in-One 3D Scene Synthesis with an Extensible and Self-Reflective Agent</title>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+  
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+  
+      gtag('js', new Date());
+  
+      gtag('config', 'G-PYVRSFMDRL');
+    </script>
+  
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+  
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-N03WWE2F44"></script>
+    <link rel="icon" href="./assets/images/logo.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+  </head>
+  
+  <body>
+  
+  
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <img src="assets/images/logo_txt_2.png" alt="Company Logo" style="height: 130px;">            
+            <h1 class="title is-1 publication-title">All-in-One 3D Scene Synthesis with an Extensible and Self-Reflective Agent</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- <p class="has-text-danger publisher">CVPR 2024, Highlight</p> -->
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://yandanyang.github.io/">Yandan Yang</a><sup>✶</sup>&nbsp;&nbsp;&nbsp;</span>
+              <span class="author-block">
+                <a href="https://buzz-beater.github.io/">Baoxiong Jia</a><sup>✶</sup>&nbsp;&nbsp;&nbsp;</span>
+              <span class="author-block">
+                <a href="https://github.com/hiShujie">Shujie Zhang</a>&nbsp;&nbsp;&nbsp;</span>
+              <span class="author-block">
+                <a href="https://siyuanhuang.com/">Siyuan Huang</a><sup>✉️</sup></span>
+              <span class="author-block">
+              </span>
+
+              <span class="author-block">State Key Laboratory of General Artificial Intelligence,</span>      
+              <span class="author-block">Beijing Institute for General Artificial Intelligence (BIGAI)</span>              
+            </div>
+            <p style="font-size: 0.9em; padding: 0.5em 0 0 0;">✶ indicates equal contribution &nbsp&nbsp&nbsp  ✉️ indicates corresponding author</p>
+            
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="assets/paper/CVPR24_PhyScene.pdf"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2404.09465.pdf"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://www.youtube.com/embed/C9sEwcqrTww?si=I9YaajZj9Lz9NoeR"
+                     class="external-link button is-normal is-rounded is-dark ">
+                    <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <!-- <a href="https://github.com/YandanYang/PhyScene"
+                     class="external-link button is-normal is-rounded is-dark "> -->
+                    <!-- <a target="_blank"
+                        class="external-link button is-normal is-rounded is-dark disabled-link">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code Coming Soon</span>
+                    </a> -->
+                    <a href="https://github.com/PhyScene/PhyScene/tree/main"
+                      class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                    </a>
+              </div>
+  
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!--   
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      
+      
+    </div>
+    
+  </section> -->
+  
+  
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="hero-body">
+            <video id="completion-dining-atiss-1" autoplay controls muted loop playsinline height="100%">
+              <source src="assets/videos/pipeline.mp4"
+                      type="video/mp4">
+            </video>
+            <!-- <img src="assets/images/teaser.jpg" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;"> -->
+            <!-- <h2 class="subtitle has-text-justified"> -->
+              
+              <!-- <b>TL;DR</b>&nbsp; 
+              We present <b><span class="dnerf">PhyScene</span></b>, 
+              a novel approach to generate interactive 3D scenes with realistic layouts, articulated objects, and rich physical interactivity tailored for embodied agents.
+              Based on a conditional diffusion model for capturing scene layouts, 
+              we devise novel physics- and interactivity-based guidance functions encompassing constraints from both object collision, room layout, as well as agent interactiveness. 
+              We hope our effort could pave the way for new research directions in embodied AI.
+            </h2>
+             -->
+          </div>
+          
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Indoor scene synthesis has become increasingly important with the rise of Embodied AI, 
+              which requires 3D environments that are not only visually realistic but also physically plausible and functionally diverse. 
+              While recent approaches have advanced visual fidelity, they often remain constrained to fixed scene categories, 
+              lack sufficient object-level detail and physical consistency, and struggle to align with complex user instructions. 
+              In this work, we present SceneWeaver, a reflective agentic framework that unifies diverse scene synthesis paradigms through tool-based iterative refinement. 
+              At its core, SceneWeaver employs a language model-based planner to select from a suite of extensible scene generation tools, 
+              ranging from data-driven generative models to visual- and LLM-based methods, 
+              guided by self-evaluation of physical plausibility, visual realism, and semantic alignment with user input. 
+              This closed-loop reason-act-reflect design enables the agent to identify semantic inconsistencies, 
+              invoke targeted tools, and update the environment over successive iterations. 
+              Extensive experiments on both common and open-vocabulary room types demonstrate that SceneWeaver not only outperforms prior methods on physical, 
+              visual, and semantic metrics, but also generalizes effectively to complex scenes with diverse instructions,
+               marking a step toward general-purpose 3D environment generation.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+  
+  
+     
+  
+    </div>
+  </section>
+  
+  
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+        <iframe width="962" height="553" src="https://www.youtube.com/embed/C9sEwcqrTww?si=I9YaajZj9Lz9NoeR" 
+        title="YouTube video player" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      
+       
+          
+      <h2 class="title is-3">Model</h2>
+        <img src="assets/images/model_final.jpg" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">
+        <p>
+           
+        </p>
+
+      <h2 class="title is-3">Compare with Previous Methods</h2>
+        <img src="assets/images/open_roomtype.jpg" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">
+        <p>
+            
+        </p>
+      <!-- Scene with Articulated Objects. -->
+      <h2 class="title is-3">Generated Scene of Different Room Type</h2>
+          <div class="content has-text-justified">
+            <!-- <p>
+              Here we retrieve articulated objects from GAPartNet Dataset and simulate generated scenes in Omniverse Isaac Sim.
+            </p> -->
+          </div>
+
+      <div class="columns is-centered">
+        <div class="column">
+            <video id="completion-bed-partial" autoplay controls muted loop playsinline height="100%">
+              <source src="assets/videos/room_rotate/simple/kitchen_1.mkv"
+                      type="video/mp4">
+            </video>  
+            <p style="text-align: center;">
+              Kitchen
+             </p>        
+        </div>
+        <div class="column">
+            <video id="completion-bed-atiss-1" autoplay controls muted loop playsinline height="100%">
+              <source src="assets/videos/room_rotate/simple/bedroom_2.mkv"
+                      type="video/mp4">
+            </video>
+            <p style="text-align: center;">
+              Bedroom
+             </p> 
+        </div>
+        <div class="column">
+          <video id="completion-bed-ours-2" autoplay controls muted loop playsinline height="100%">
+            <source src="assets/videos/room_rotate/simple/childrenroom.mkv"
+                    type="video/mp4">
+          </video>   
+          <p style="text-align: center;">
+            Children Room
+           </p> 
+        </div>
+        <div class="column">
+          <video id="completion-dining-ours-2" autoplay controls muted loop playsinline height="100%">
+            <source src="assets/videos/room_rotate/simple/meetingroom_2.mkv"
+                    type="video/mp4">
+          </video> 
+          <p style="text-align: center;">
+            Meeting Room
+           </p>  
+        </div>
+      </div>
+  
+  
+      <div class="columns is-centered">
+        <div class="column">
+            <video id="completion-dining-partial" autoplay controls muted loop playsinline height="100%">
+              <source src="assets/videos/room_rotate/simple/kitchen_2.mp4"
+                      type="video/mp4">
+            </video>    
+            <p style="text-align: center;">
+              Kitchen
+             </p>
+           
+        </div>
+        <div class="column">
+            <video id="completion-dining-atiss-1" autoplay controls muted loop playsinline height="100%">
+              <source src="assets/videos/room_rotate/simple/bathroom_1.mkv"
+                      type="video/mp4">
+            </video>
+            <p style="text-align: center;">
+              Bathroom
+             </p>
+            
+        </div>
+        <div class="column">
+          <video id="completion-dining-ours-2" autoplay controls muted loop playsinline height="100%">
+            <source src="assets/videos/room_rotate/simple/office_1.mkv"
+                    type="video/mp4">
+          </video>   
+          <p style="text-align: center;">
+           Office
+          </p>
+         
+        </div>
+        <div class="column">
+          <video id="completion-dining-ours-2" autoplay controls muted loop playsinline height="100%">
+            <source src="assets/videos/room_rotate/simple/office_2.mkv"
+                    type="video/mp4">
+          </video>   
+          <p style="text-align: center;">
+            Office
+           </p>
+         
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column">
+            <video id="completion-dining-partial" autoplay controls muted loop playsinline height="100%">
+              <source src="assets/videos/room_rotate/simple/restaurant.mkv"
+                      type="video/mp4">
+            </video>    
+            <p style="text-align: center;">
+              Restaurant
+             </p>
+        </div>
+        <div class="column">
+            <video id="completion-dining-atiss-1" autoplay controls muted loop playsinline height="100%">
+              <source src="assets/videos/room_rotate/simple/gym.mkv"
+                      type="video/mp4">
+            </video>
+            <p style="text-align: center;">
+              Gym
+             </p>
+        </div>
+        <div class="column">
+          <video id="completion-dining-ours-2" autoplay controls muted loop playsinline height="100%">
+            <source src="assets/videos/room_rotate/simple/meetingroom_1.mkv"
+                    type="video/mp4">
+          </video>   
+          <p style="text-align: center;">
+            Meeting Room
+           </p>
+        </div>
+        <div class="column">
+          <video id="completion-dining-ours-2" autoplay controls muted loop playsinline height="100%">
+            <source src="assets/videos/room_rotate/simple/livingroom.mkv"
+                    type="video/mp4">
+          </video>   
+          <p style="text-align: center;">
+            Living Room
+           </p>
+        </div>
+      </div>
+      <!--/ Scene with Articulated Objects -->
+  
+      <!-- Multi Room. -->
+      <h2 class="title is-3">Generated Scene of Complex Prompt</h2>
+      <div class="content has-text-justified">
+        <!-- <p>
+          We utilize floor plan & room structure from ProcTHOR and generate scenes with unseen floor plans.
+        </p> -->
+      </div>
+  
+      <div class="columns is-centered">
+        <div class="column">
+            <video id="rearrange-1-noisy" autoplay controls muted loop playsinline height="100%">
+              <source src="assets/videos/room_rotate/complex/complex_bedroom.mkv"
+                      type="video/mp4">
+            </video>         
+            <h2 class="subtitle is-6 has-text-centered">A bedroom rich of furniture, decoration on the wall, and small objects.
+            </h2>
+        </div>
+        <div class="column">
+          <video id="rearrange-1-noisy" autoplay controls muted loop playsinline height="100%">
+            <source src="assets/videos/room_rotate/complex/complex_garage.mkv"
+                    type="video/mp4">
+          </video>         
+          <h2 class="subtitle is-6 has-text-centered">A laundromat with 10 machines. Add washing supplies on each machine. Add other related objects, such as baskets, and washthub in the room. 
+          </h2>
+        </div>
+        <div class="column">
+          <video id="rearrange-1-noisy" autoplay controls muted loop playsinline height="100%">
+            <source src="assets/videos/room_rotate/complex/complex_washingroom.mkv"
+                    type="video/mp4">
+          </video>         
+          <h2 class="subtitle is-6 has-text-centered">A garage with a car in the center. Add a work bench and shelf with related tools. 
+          </h2>
+      </div>
+      </div>
+      <!--/ Robot Interaction. -->
+      
+
+      <!-- Robot Interaction. -->
+      <h2 class="title is-3">Robot Interaction</h2>
+      <p>
+        Our code can easily export the generated scenes as USD files and load them into Isaac Sim.
+        Through <b>Apple Vision Pro</b>, we remotely control a <b>Unitree G1</b> humanoid robot to perform object interactions. <br>
+        Three key advantages of SceneWeaver for embodied AI applications: <br>
+        ✓ High-fidelity simulation with preserved textures and geometric details.<br>
+        ✓ Robust physical interactions guaranteed by collision-free and boundary-constrained object placement.<br>
+        ✓ Task-aligned scene layouts that adapt to diverse EAI requirements through controllable synthesis.<br>
+      </p>
+        <video id="completion-dining-atiss-1" autoplay controls muted loop playsinline height="100%">
+          <source src="assets/videos/robot.mp4"
+                  type="video/mp4">
+        </video>
+
+
+  
+     
+   
+      <h2 class="title is-3">Tool Cards</h2>
+      <div class="content has-text-justified">
+        <!-- <p>
+          Results of <b>three distinct guidances</b> with floor-plan condition.    
+        </p> -->
+      </div>
+      <!-- <div class="columns is-centered"> -->
+        <!-- <div class="column"> -->
+          <img src="assets/images/toolcard.jpg" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">     
+        <!-- </div> -->
+      <!-- </div> -->
+
+  
+
+      <!-- <h2 class="title is-3">Articulated Objects</h2>
+      <div class="content has-text-justified">
+        <p>
+          We visualize some models of "Table" and "StorageFurniture" in GAPartNet dataset. 
+          The articulated models have various appearances and different joint types such as revolute and prismatic. 
+          Each furniture has several joints for interaction. 
+        </p>
+      </div> -->
+      <!-- <div class="columns is-centered"> -->
+        <!-- <div class="column"> -->
+          <!-- <img src="assets/images/ARTICULATED.png" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">      -->
+        <!-- </div> -->
+      <!-- </div> -->
+
+    
+     
+  
+  
+      <!-- Scene Completion. -->
+      <!-- <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Scene Completion</h2>
+          <div class="content has-text-justified">
+            <p>
+              Scene completion from partial scenes with only 3 objects given as inputs.
+            </p>
+          </div>
+          <video id="completion" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/completion.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div> -->
+    <!--/ Scene Completion. -->
+  
+    <!-- Scene Re-arrangement. -->
+      <!-- <div class="columns is-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">Scene Re-arrangement</h2>
+            <div class="content has-text-justified">
+              <p>
+                Scene re-arrangements of collections of random objects. 
+              </p>
+            </div>
+            <video id="re-arrangement" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/rearrangement.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+      </div> -->
+    <!--/ Scene Re-arrangement. -->
+  
+  
+    <!--Text-conditioned Scene Synthesis. -->
+      <!-- <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Text-conditioned Scene Synthesis</h2>
+          <div class="content has-text-justified">
+            <p>
+              Text-conditioned scene synthesis. The input text
+              only describes a partial scene configuration.
+            </p>
+          </div>
+          <video id="text-condition" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/text_condition.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div> -->
+    <!--/ Text-conditioned Scene Synthesis. -->
+    
+    </div>
+  
+  
+  
+  
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code class="language-bibtex">
+        @inproceedings{yang2024physcene,
+          title={PhyScene: Physically Interactable 3D Scene Synthesis for Embodied AI},
+          author={Yang, Yandan and Jia, Baoxiong and Zhi, Peiyuan and Huang, Siyuan},
+          booktitle={Proceedings of Conference on Computer Vision and Pattern Recognition (CVPR)},
+          year={2024}
+        }
+      </code></pre>
+    </div>
+  </section>
+  
+  
+  <footer class="footer">
+    <div class="container">
+      <!-- <div class="content has-text-centered"> -->
+        <!-- <a class="icon-link"
+           href="https://arxiv.org/pdf/xxx.pdf">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/xxx" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a> -->
+      <!-- </div> -->
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Website source code is borrowed from <a
+                href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> 
+                and <a href="https://github.com/scenediffuser/scenediffuser.github.io">SceneDiffuser</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  </body>
+  </html>
