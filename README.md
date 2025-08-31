@@ -4,11 +4,10 @@ This is the repository that contains source code for the [SceneWeaver website](h
 
 If you find SceneWeaver useful for your work please cite:
 ```
-@inproceedings{yang2024physcene,
-          title={PhyScene: Physically Interactable 3D Scene Synthesis for Embodied AI},
-          author={Yang, Yandan and Jia, Baoxiong and Zhi, Peiyuan and Huang, Siyuan},
-          booktitle={Proceedings of Conference on Computer Vision and Pattern Recognition (CVPR)},
-          year={2024}
+@inproceedings{yang2025sceneweaver,
+          title={SceneWeaver: All-in-One 3D Scene Synthesis with an Extensible and Self-Reflective Agent},
+          author={Yang, Yandan and Jia, Baoxiong and Zhang, Shujie and Huang, Siyuan},
+          year={2025}
         }
 ```
 

@@ -208,11 +208,7 @@
            
         </p>
 
-      <h2 class="title is-3">Compare with Previous Methods</h2>
-        <img src="assets/images/open_roomtype.jpg" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">
-        <p>
-            
-        </p>
+      
       <!-- Scene with Articulated Objects. -->
       <h2 class="title is-3">Generated Scene of Different Room Type</h2>
           <div class="content has-text-justified">
@@ -380,6 +376,32 @@
       </div>
       <!--/ Robot Interaction. -->
       
+      <h2 class="title is-3">With room structure</h2>
+      <p>
+        We show some examples of scene generation with room structures like windows and doors, which we obmit in the main experiments.
+       </p>
+      <div class="columns is-centered">
+        <div class="column">
+            <video id="rearrange-1-noisy" autoplay controls muted loop playsinline height="100%">
+              <source src="assets/videos/room_rotate/with_window/gym_outside.mkv"
+                      type="video/mp4">
+            </video>         
+            <!-- <h2 class="subtitle is-6 has-text-centered">A bedroom rich of furniture, decoration on the wall, and small objects. -->
+            </h2>
+        </div>
+        <div class="column">
+          <video id="rearrange-1-noisy" autoplay controls muted loop playsinline height="100%">
+            <source src="assets/videos/room_rotate/with_window/gym_inside.mkv"
+                    type="video/mp4">
+          </video>         
+          <!-- <h2 class="subtitle is-6 has-text-centered">A laundromat with 10 machines. Add washing supplies on each machine. Add other related objects, such as baskets, and washthub in the room.  -->
+          </h2>
+        </div>
+       
+      </div>
+      <!-- Robot Interaction. -->
+     
+     
 
       <!-- Robot Interaction. -->
       <h2 class="title is-3">Robot Interaction</h2>
@@ -399,7 +421,7 @@
 
   
      
-   
+      
       <h2 class="title is-3">Tool Cards</h2>
       <div class="content has-text-justified">
         <!-- <p>
@@ -412,7 +434,46 @@
         <!-- </div> -->
       <!-- </div> -->
 
-  
+      <h2 class="title is-3">Examples of Different Tools</h2>
+      <div class="content has-text-justified">
+        <p>
+          Results of different <b>Initializer</b> for bedroom generation.    
+        </p>
+                <img src="assets/images/initializer.jpg" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">     
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Results of <b>Add Crowd</b>. We show samples of crowded shelf generation in two scenes: bookstore and kitchen.    
+        </p>
+      </div>
+      <div class="columns is-centered">
+        <div class="column">
+          <img src="assets/images/bookstore_shelf.png" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">     
+          <!-- <p>
+            Generate crowded shelf in bookstore.    
+          </p> -->
+        </div>
+        <div class="column">
+          <img src="assets/images/kitchen_shelf.png" style="width:93%; margin-right:auto; margin-left:auto; margin-top:auto;">         
+          <!-- <p>
+            Generate crowded shelf in kitchen.    
+          </p> -->
+        </div>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Results of <b>Add 2D Guidance</b>. We show samples of crowded shelf generation in two scenes: bookstore and kitchen.    
+        </p>
+                <img src="assets/images/tabletop.png" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">     
+      </div>
+
+
+
+      <h2 class="title is-3">Compare with Previous Methods</h2>
+        <img src="assets/images/open_roomtype.jpg" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">
+        <p>
+            
+        </p>
 
       <!-- <h2 class="title is-3">Articulated Objects</h2>
       <div class="content has-text-justified">
@@ -494,11 +555,10 @@
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code class="language-bibtex">
-        @inproceedings{yang2024physcene,
-          title={PhyScene: Physically Interactable 3D Scene Synthesis for Embodied AI},
-          author={Yang, Yandan and Jia, Baoxiong and Zhi, Peiyuan and Huang, Siyuan},
-          booktitle={Proceedings of Conference on Computer Vision and Pattern Recognition (CVPR)},
-          year={2024}
+        @inproceedings{yang2025sceneweaver,
+          title={SceneWeaver: All-in-One 3D Scene Synthesis with an Extensible and Self-Reflective Agent},
+          author={Yang, Yandan and Jia, Baoxiong and Zhang, Shujie and Huang, Siyuan},
+          year={2025}
         }
       </code></pre>
     </div>
