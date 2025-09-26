@@ -1,12 +1,13 @@
 # SceneWeaver: All-in-One 3D Scene Synthesis with an Extensible and Self-Reflective Agent
 
-This is the repository that contains source code for the [SceneWeaver website](https://SceneWeaver.github.io/)
+This is the repository that contains source code for the [SceneWeaver website](https://scene-weaver.github.io/)
 
 If you find SceneWeaver useful for your work please cite:
 ```
 @inproceedings{yang2025sceneweaver,
           title={SceneWeaver: All-in-One 3D Scene Synthesis with an Extensible and Self-Reflective Agent},
           author={Yang, Yandan and Jia, Baoxiong and Zhang, Shujie and Huang, Siyuan},
+          booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
           year={2025}
         }
 ```
